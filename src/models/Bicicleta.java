@@ -1,3 +1,7 @@
+package models;
+
+import utils.Metodos;
+
 import java.time.LocalDate;
 
 public class Bicicleta {
@@ -90,7 +94,7 @@ public class Bicicleta {
 
     @Override
     public String toString() {
-        return "Bicicleta{" +
+        return "models.Bicicleta{" +
                 "id=" + id +
                 ", modelo='" + modelo + '\'' +
                 ", aro=" + aro +
