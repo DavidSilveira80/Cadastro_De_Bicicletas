@@ -14,7 +14,7 @@ public class Bicicleta {
     public Bicicleta(String modelo, int aro, String cor, double preco, String nomeDoComprador, String nomeDaLoja, LocalDate
             dataDeCompra){
 
-        this.id = geradorId.contador();
+        this.id = Metodos.incremento();
         this.modelo = modelo;
         this.aro = aro;
         this.cor = cor;
