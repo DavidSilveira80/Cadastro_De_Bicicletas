@@ -1,4 +1,6 @@
 import menus.Menus;
+import utils.Metodos;
+
 import java.util.Scanner;
 public class Aplicacao {
     public static void main(String[] args){
@@ -11,7 +13,7 @@ public class Aplicacao {
 
                 Menus.menuPrincipal();
                 System.out.print("Informe sua escolha: ");
-                option = entrada.nextInt();
+                option = Metodos.entradaInteira();
 
                 if (option == 1) {
                     System.out.println("CRIAR BIKE");
