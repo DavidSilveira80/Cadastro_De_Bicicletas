@@ -16,11 +16,9 @@ public class Aplicacao {
         while(parada == 0) {
             int option;
             do {
-
                 Menus.menuPrincipal();
                 System.out.print("Informe sua escolha: ");
                 option = MetodosUtilitarios.entradaInteira();
-
 
                 if (option == 1) {
                     System.out.println("CRIAR BIKE");
