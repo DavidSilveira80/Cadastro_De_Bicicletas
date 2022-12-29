@@ -34,6 +34,18 @@ public class Aplicacao {
 
                 } else if (option == 2) {
                     System.out.println("LISTAR TODAS AS BIKES");
+                    for(Bicicleta bike : arrayDeBikes){
+                        System.out.println("============================");
+                        System.out.println("       Bike -> " + bike.getId());
+                        System.out.println(" Modelo: " + bike.getModelo());
+                        System.out.println(" Cor: " + bike.getCor());
+                        System.out.println(" Preço: " + bike.getPreco());
+                        System.out.println(" Comprador: " + bike.getNomeDoComprador());
+                        System.out.println(" Loja: " + bike.getNomeDaLoja());
+                        System.out.println(" Data da compra: " + bike.getDataDeCompra());
+
+
+                    }
 
                 } else if (option == 3) {
                     System.out.println("LISTAR UMA BIKE POR ID");
