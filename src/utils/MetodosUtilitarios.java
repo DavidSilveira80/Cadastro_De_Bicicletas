@@ -2,7 +2,7 @@ package utils;
 
 import java.util.Scanner;
 
-public class Metodos {
+public class MetodosUtilitarios {
     static int contador = 0;
     public static int incremento(){
         contador++;

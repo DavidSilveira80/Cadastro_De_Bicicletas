@@ -1,8 +1,7 @@
 package models;
 
-import utils.Metodos;
+import utils.MetodosUtilitarios;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 public class Bicicleta {
@@ -18,7 +17,7 @@ public class Bicicleta {
     public Bicicleta(String modelo, String cor, double preco, String nomeDoComprador, String nomeDaLoja, Date
             dataDeCompra){
 
-        this.id = Metodos.incremento();
+        this.id = MetodosUtilitarios.incremento();
         this.modelo = modelo;
         this.cor = cor;
         this.preco = preco;

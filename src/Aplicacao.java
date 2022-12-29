@@ -1,10 +1,9 @@
 import menus.Menus;
 import models.Bicicleta;
-import utils.EntradasCriarBike;
-import utils.Metodos;
+import models.EntradasCriarBike;
+import utils.MetodosUtilitarios;
 
 import java.util.Date;
-import java.util.Locale;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -20,7 +19,7 @@ public class Aplicacao {
 
                 Menus.menuPrincipal();
                 System.out.print("Informe sua escolha: ");
-                option = Metodos.entradaInteira();
+                option = MetodosUtilitarios.entradaInteira();
 
 
                 if (option == 1) {
@@ -43,12 +42,12 @@ public class Aplicacao {
                         System.out.println(" Comprador: " + bike.getNomeDoComprador());
                         System.out.println(" Loja: " + bike.getNomeDaLoja());
                         System.out.println(" Data da compra: " + bike.getDataDeCompra());
-
-
                     }
 
                 } else if (option == 3) {
                     System.out.println("LISTAR UMA BIKE POR ID");
+                    System.out.print("Informe o Id da Bike: ");
+
                 } else if (option == 4) {
                     System.out.println("ATUALIZAR TODAS AS INFOMAÇÔES DE UMA BIKE");
                 } else if (option == 5) {
