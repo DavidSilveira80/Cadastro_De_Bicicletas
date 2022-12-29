@@ -3,24 +3,23 @@ package models;
 import utils.Metodos;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Bicicleta {
     Integer id;
 
     String modelo;
-    int aro;
     String cor;
     String nomeDoComprador;
     String nomeDaLoja;
     double preco;
-    LocalDate dataDeCompra;
+    Date dataDeCompra;
 
-    public Bicicleta(String modelo, int aro, String cor, double preco, String nomeDoComprador, String nomeDaLoja, LocalDate
+    public Bicicleta(String modelo, String cor, double preco, String nomeDoComprador, String nomeDaLoja, Date
             dataDeCompra){
 
         this.id = Metodos.incremento();
         this.modelo = modelo;
-        this.aro = aro;
         this.cor = cor;
         this.preco = preco;
         this.nomeDoComprador = nomeDoComprador;
@@ -44,13 +43,6 @@ public class Bicicleta {
         this.modelo = modelo;
     }
 
-    public int getAro() {
-        return aro;
-    }
-
-    public void setAro(int aro) {
-        this.aro = aro;
-    }
 
     public String getCor() {
         return cor;
@@ -84,11 +76,11 @@ public class Bicicleta {
         this.preco = preco;
     }
 
-    public LocalDate getDataDeCompra() {
+    public Date getDataDeCompra() {
         return dataDeCompra;
     }
 
-    public void setDataDeCompra(LocalDate dataDeCompra) {
+    public void setDataDeCompra(Date dataDeCompra) {
         this.dataDeCompra = dataDeCompra;
     }
 
@@ -97,7 +89,6 @@ public class Bicicleta {
         return "models.Bicicleta{" +
                 "id=" + id +
                 ", modelo='" + modelo + '\'' +
-                ", aro=" + aro +
                 ", cor='" + cor + '\'' +
                 ", nomeDoComprador='" + nomeDoComprador + '\'' +
                 ", nomeDaLoja='" + nomeDaLoja + '\'' +
