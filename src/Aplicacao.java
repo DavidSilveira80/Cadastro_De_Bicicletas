@@ -31,7 +31,7 @@ public class Aplicacao {
                 } else if (option == 2) {
                     System.out.println("LISTAR TODAS AS BIKES");
                     for(Bicicleta bike : arrayDeBikes){
-                        bike.listarBikes();
+                        bike.listarAtributosBike();
                     }
 
                 } else if (option == 3) {

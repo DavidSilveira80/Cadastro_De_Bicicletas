@@ -43,7 +43,7 @@ public class MetodosUtilitarios {
         if(existeIdBike(arrayBikes, id) == true){
             for(Bicicleta bike : arrayBikes){
                 if(bike.getId().equals(id)){
-                    bike.listarBikes();
+                    bike.listarAtributosBike();
                 }else{
                     System.out.println("Bike não existe.");
                 }

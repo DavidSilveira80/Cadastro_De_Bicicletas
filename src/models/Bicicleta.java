@@ -83,7 +83,7 @@ public class Bicicleta {
         this.dataDeCompra = dataDeCompra;
     }
 
-    public void listarBikes(){
+    public void listarAtributosBike(){
         System.out.println("============================");
         System.out.println("       Bike -> " + getId());
         System.out.println(" Modelo: " + getModelo());
