@@ -43,19 +43,11 @@ public class MetodosUtilitarios {
         if(existeIdBike(arrayBikes, id) == true){
             for(Bicicleta bike : arrayBikes){
                 if(bike.getId().equals(id)){
-                    System.out.println("============================");
-                    System.out.println("       Bike -> " + bike.getId());
-                    System.out.println(" Modelo: " + bike.getModelo());
-                    System.out.println(" Cor: " + bike.getCor());
-                    System.out.println(" Preço: " + bike.getPreco());
-                    System.out.println(" Comprador: " + bike.getNomeDoComprador());
-                    System.out.println(" Loja: " + bike.getNomeDaLoja());
-                    System.out.println(" Data da compra: " + bike.getDataDeCompra());
+                    bike.listarBikes();
                 }else{
                     System.out.println("Bike não existe.");
                 }
             }
-
         }
 
     }

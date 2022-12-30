@@ -83,16 +83,14 @@ public class Bicicleta {
         this.dataDeCompra = dataDeCompra;
     }
 
-    @Override
-    public String toString() {
-        return "models.Bicicleta{" +
-                "id=" + id +
-                ", modelo='" + modelo + '\'' +
-                ", cor='" + cor + '\'' +
-                ", nomeDoComprador='" + nomeDoComprador + '\'' +
-                ", nomeDaLoja='" + nomeDaLoja + '\'' +
-                ", preco=" + preco +
-                ", dataDeCompra=" + dataDeCompra +
-                '}';
+    public void listarBikes(){
+        System.out.println("============================");
+        System.out.println("       Bike -> " + getId());
+        System.out.println(" Modelo: " + getModelo());
+        System.out.println(" Cor: " + getCor());
+        System.out.println(" Preço: " + getPreco());
+        System.out.println(" Comprador: " + getNomeDoComprador());
+        System.out.println(" Loja: " + getNomeDaLoja());
+        System.out.println(" Data da compra: " + getDataDeCompra());
     }
 }

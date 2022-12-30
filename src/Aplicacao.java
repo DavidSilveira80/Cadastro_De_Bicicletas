@@ -4,12 +4,11 @@ import models.EntradasCriarBike;
 import utils.MetodosUtilitarios;
 
 import java.util.Date;
-import java.util.Scanner;
+
 import java.util.ArrayList;
 
 public class Aplicacao {
     public static void main(String[] args){
-        Scanner entrada = new Scanner(System.in);
         ArrayList<Bicicleta> arrayDeBikes = new ArrayList<>();
 
         int parada = 0;
@@ -32,14 +31,7 @@ public class Aplicacao {
                 } else if (option == 2) {
                     System.out.println("LISTAR TODAS AS BIKES");
                     for(Bicicleta bike : arrayDeBikes){
-                        System.out.println("============================");
-                        System.out.println("       Bike -> " + bike.getId());
-                        System.out.println(" Modelo: " + bike.getModelo());
-                        System.out.println(" Cor: " + bike.getCor());
-                        System.out.println(" Preço: " + bike.getPreco());
-                        System.out.println(" Comprador: " + bike.getNomeDoComprador());
-                        System.out.println(" Loja: " + bike.getNomeDaLoja());
-                        System.out.println(" Data da compra: " + bike.getDataDeCompra());
+                        bike.listarBikes();
                     }
 
                 } else if (option == 3) {
@@ -50,6 +42,7 @@ public class Aplicacao {
 
                 } else if (option == 4) {
                     System.out.println("ATUALIZAR TODAS AS INFOMAÇÔES DE UMA BIKE");
+
                 } else if (option == 5) {
                     System.out.println("ATUALIZAR UMA INFORMAÇÂO ESPECIFICA DE UMA BIKE");
                 } else if (option == 6) {
