@@ -28,10 +28,10 @@ public class MetodosUtilitarios {
     }
     public static boolean existeIdBike(ArrayList<Bicicleta> arrayBikes, int id){
         boolean resposta = false;
-
         for(Bicicleta bike : arrayBikes){
-            if(bike.getId().equals(id)){
+            if(bike.getId() == id){
                 resposta = true;
+                break;
             }else{
                 resposta = false;
             }
@@ -44,7 +44,6 @@ public class MetodosUtilitarios {
         for (Bicicleta bike : arrayBikes) {
             if (bike.getId() == id) {
                 resposta = bike.listarAtributosBike();
-
             }
         }
         return resposta;

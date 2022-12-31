@@ -39,8 +39,11 @@ public class Aplicacao {
                     System.out.println("LISTAR UMA BIKE POR ID");
                     System.out.print("Informe o Id da Bike: ");
                     int idListarUmaBike = MetodosUtilitarios.entradaInteira();
+                    if(MetodosUtilitarios.existeIdBike(arrayDeBikes, idListarUmaBike)){
                         System.out.println(MetodosUtilitarios.listarBikePorId(arrayDeBikes, idListarUmaBike));
-
+                    }else{
+                        System.out.println("Bike não existe");
+                    }
 
                 } else if (option == 4) {
                     System.out.println("ATUALIZAR TODAS AS INFOMAÇÔES DE UMA BIKE");
