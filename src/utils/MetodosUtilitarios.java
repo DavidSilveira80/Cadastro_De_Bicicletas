@@ -39,19 +39,14 @@ public class MetodosUtilitarios {
         return resposta;
     }
 
-    public static void listarBikePorId(ArrayList<Bicicleta> arrayBikes, int id){
+    public static String listarBikePorId(ArrayList<Bicicleta> arrayBikes, int id) {
+        String resposta = "";
+        for (Bicicleta bike : arrayBikes) {
+            if (bike.getId() == id) {
+                resposta = bike.listarAtributosBike();
 
-        if(existeIdBike(arrayBikes, id) == true){
-            for(Bicicleta bike : arrayBikes){
-                if(bike.getId().equals(id)){
-                    bike.listarAtributosBike();
-                }
             }
-        }else{
-            System.out.println("=================");
-            System.out.println("Bike não existe.");
         }
-
+        return resposta;
     }
-
 }

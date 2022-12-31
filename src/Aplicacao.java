@@ -32,19 +32,25 @@ public class Aplicacao {
                 } else if (option == 2) {
                     System.out.println("LISTAR TODAS AS BIKES");
                     for(Bicicleta bike : arrayDeBikes){
-                        bike.listarAtributosBike();
+                        System.out.println(bike.listarAtributosBike());
                     }
 
                 } else if (option == 3) {
                     System.out.println("LISTAR UMA BIKE POR ID");
                     System.out.print("Informe o Id da Bike: ");
-                    int id = MetodosUtilitarios.entradaInteira();
-                    MetodosUtilitarios.listarBikePorId(arrayDeBikes, id);
+                    int idListarUmaBike = MetodosUtilitarios.entradaInteira();
+                        System.out.println(MetodosUtilitarios.listarBikePorId(arrayDeBikes, idListarUmaBike));
+
 
                 } else if (option == 4) {
                     System.out.println("ATUALIZAR TODAS AS INFOMAÇÔES DE UMA BIKE");
                     System.out.print("Informe o ID da bike que você quer atualizar: ");
-                    int id = MetodosUtilitarios.entradaInteira();
+                    int idModificarTodaBike = MetodosUtilitarios.entradaInteira();
+                    for(Bicicleta bike: arrayDeBikes){
+                        if(bike.getId().equals(idModificarTodaBike)){
+                            bike.atualizarDadosBike();
+                        }
+                    }
 
                 } else if (option == 5) {
                     System.out.println("ATUALIZAR UMA INFORMAÇÂO ESPECIFICA DE UMA BIKE");

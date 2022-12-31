@@ -1,7 +1,8 @@
 package models;
 
 import utils.MetodosUtilitarios;
-
+import java.text.*;
+//import java.util.ArrayList;
 import java.util.Date;
 
 public class Bicicleta {
@@ -83,17 +84,31 @@ public class Bicicleta {
         this.dataDeCompra = dataDeCompra;
     }
 
-    public void listarAtributosBike(){
-        System.out.println("============================");
-        System.out.println("       Bike -> " + getId());
-        System.out.println(" Modelo: " + getModelo());
-        System.out.println(" Cor: " + getCor());
-        System.out.println(" Preço: " + getPreco());
-        System.out.println(" Comprador: " + getNomeDoComprador());
-        System.out.println(" Loja: " + getNomeDaLoja());
-        System.out.println(" Data da compra: " + getDataDeCompra());
+    public String listarAtributosBike(){
+
+        SimpleDateFormat sdf1= new SimpleDateFormat("dd/MM/yyyy");
+
+        String resp = String.format("============================\n" +
+                "BIKE -> %d\n" +
+                "Modelo: %s\n" +
+                "Cor: %s\n" +
+                "Preço: %f\n" +
+                "Comprador: %s\n" +
+                "Loja: %s\n" +
+                "Data da Compra: %s", getId(), getModelo(),
+                getCor(), getPreco(), getNomeDoComprador()
+        ,getNomeDaLoja(), sdf1.format(getDataDeCompra()));
+        return resp;
+
     }
     public void atualizarDadosBike(){
+        Date dataDeCompra = new Date();
+        setModelo(EntradasCriarBike.informarModeloBike());
+        setCor(EntradasCriarBike.informarCorBike());
+        setPreco(EntradasCriarBike.informarPrecoBike());
+        setNomeDoComprador(EntradasCriarBike.informarNomeComprador());
+        setNomeDaLoja(EntradasCriarBike.informarNomeLoja());
+        setDataDeCompra(dataDeCompra);
 
     }
 }
