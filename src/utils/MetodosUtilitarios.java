@@ -39,15 +39,17 @@ public class MetodosUtilitarios {
         return resposta;
     }
 
-    public static void listarBikePorid(ArrayList<Bicicleta> arrayBikes, int id){
+    public static void listarBikePorId(ArrayList<Bicicleta> arrayBikes, int id){
+
         if(existeIdBike(arrayBikes, id) == true){
             for(Bicicleta bike : arrayBikes){
                 if(bike.getId().equals(id)){
                     bike.listarAtributosBike();
-                }else{
-                    System.out.println("Bike não existe.");
                 }
             }
+        }else{
+            System.out.println("=================");
+            System.out.println("Bike não existe.");
         }
 
     }

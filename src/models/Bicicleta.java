@@ -93,4 +93,7 @@ public class Bicicleta {
         System.out.println(" Loja: " + getNomeDaLoja());
         System.out.println(" Data da compra: " + getDataDeCompra());
     }
+    public void atualizarDadosBike(){
+
+    }
 }

@@ -24,7 +24,8 @@ public class Aplicacao {
                     Date dataDeCompra = new Date();
                     arrayDeBikes.add(new Bicicleta(EntradasCriarBike.informarModeloBike(),
                             EntradasCriarBike.informarCorBike(),
-                            EntradasCriarBike.informarPrecoBike(), EntradasCriarBike.informarNomeComprador(),
+                            EntradasCriarBike.informarPrecoBike(),
+                            EntradasCriarBike.informarNomeComprador(),
                             EntradasCriarBike.informarNomeLoja(),
                             dataDeCompra));
 
@@ -38,10 +39,12 @@ public class Aplicacao {
                     System.out.println("LISTAR UMA BIKE POR ID");
                     System.out.print("Informe o Id da Bike: ");
                     int id = MetodosUtilitarios.entradaInteira();
-                    MetodosUtilitarios.listarBikePorid(arrayDeBikes, id);
+                    MetodosUtilitarios.listarBikePorId(arrayDeBikes, id);
 
                 } else if (option == 4) {
                     System.out.println("ATUALIZAR TODAS AS INFOMAÇÔES DE UMA BIKE");
+                    System.out.print("Informe o ID da bike que você quer atualizar: ");
+                    int id = MetodosUtilitarios.entradaInteira();
 
                 } else if (option == 5) {
                     System.out.println("ATUALIZAR UMA INFORMAÇÂO ESPECIFICA DE UMA BIKE");
