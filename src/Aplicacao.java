@@ -44,7 +44,6 @@ public class Aplicacao {
                     }else{
                         System.out.println("Bike não existe");
                     }
-
                 } else if (option == 4) {
                     System.out.println("ATUALIZAR TODAS AS INFOMAÇÔES DE UMA BIKE");
                     System.out.print("Informe o ID da bike que você quer atualizar: ");
@@ -54,9 +53,34 @@ public class Aplicacao {
                             bike.atualizarDadosBike();
                         }
                     }
-
                 } else if (option == 5) {
                     System.out.println("ATUALIZAR UMA INFORMAÇÂO ESPECIFICA DE UMA BIKE");
+                    int opcaoAtualizar = 0;
+                    do{
+
+                        Menus.menuAtualizaUmAtributo();
+                        System.out.print("Informe sua escolha: ");
+                        opcaoAtualizar = MetodosUtilitarios.entradaInteira();
+
+                    }while(opcaoAtualizar != 1 && opcaoAtualizar !=2 && opcaoAtualizar !=3
+                    && opcaoAtualizar != 4 && opcaoAtualizar != 5);
+                    switch(opcaoAtualizar){
+                        case 1:
+                            System.out.println("ATUALIZAR MODELO");
+                            break;
+                        case 2:
+                            System.out.println("ATUALIZAR COR");
+                            break;
+                        case 3:
+                            System.out.println("ATUALIZAR PREÇO");
+                            break;
+                        case 4:
+                            System.out.println("ATUALIZAR NOME DO COMPRADOR");
+                            break;
+                        case 5:
+                            System.out.println("ATUALIZAR LOJA");
+                            break;
+                    }
                 } else if (option == 6) {
                     System.out.println("DELETAR UMA BIKE");
                 } else if (option == 7) {
