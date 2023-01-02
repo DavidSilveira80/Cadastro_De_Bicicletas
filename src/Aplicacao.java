@@ -67,6 +67,7 @@ public class Aplicacao {
                     switch(opcaoAtualizar){
                         case 1:
                             System.out.println("ATUALIZAR MODELO");
+                            //TODO Atualização de atributos
                             break;
                         case 2:
                             System.out.println("ATUALIZAR COR");
