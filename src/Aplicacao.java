@@ -2,7 +2,7 @@ import menus.Menus;
 import models.Bicicleta;
 import models.EntradasCriarBike;
 import utils.MetodosUtilitarios;
-
+//import java.util.Scanner;
 import java.util.Date;
 
 import java.util.ArrayList;
@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class Aplicacao {
     public static void main(String[] args){
         ArrayList<Bicicleta> arrayDeBikes = new ArrayList<>();
+        //Scanner entrada = new Scanner(System.in);
 
         int parada = 0;
         while(parada == 0) {
@@ -57,29 +58,70 @@ public class Aplicacao {
                     System.out.println("ATUALIZAR UMA INFORMAÇÂO ESPECIFICA DE UMA BIKE");
                     int opcaoAtualizar = 0;
                     do{
-
-                        Menus.menuAtualizaUmAtributo();
-                        System.out.print("Informe sua escolha: ");
-                        opcaoAtualizar = MetodosUtilitarios.entradaInteira();
+                            Menus.menuAtualizaUmAtributo();
+                            System.out.print("Informe sua escolha: ");
+                            opcaoAtualizar = MetodosUtilitarios.entradaInteira();
 
                     }while(opcaoAtualizar != 1 && opcaoAtualizar !=2 && opcaoAtualizar !=3
                     && opcaoAtualizar != 4 && opcaoAtualizar != 5);
                     switch(opcaoAtualizar){
                         case 1:
                             System.out.println("ATUALIZAR MODELO");
-                            //TODO Atualização de atributos
+
+                            System.out.print("Informe o ID da Bike: ");
+                            int idModelo = MetodosUtilitarios.entradaInteira();
+                            for(Bicicleta bike : arrayDeBikes){
+                                if(bike.getId().equals(idModelo)){
+
+                                    bike.setModelo(models.EntradasCriarBike.informarModeloBike());
+                                    break;
+                                }
+                            }
                             break;
                         case 2:
                             System.out.println("ATUALIZAR COR");
+                            System.out.print("Informe o ID da Bike: ");
+                            int idCor = MetodosUtilitarios.entradaInteira();
+                            for(Bicicleta bike : arrayDeBikes){
+                                if(bike.getId().equals(idCor)){
+
+                                    bike.setCor(models.EntradasCriarBike.informarCorBike());
+                                    break;
+                                }
+                            }
                             break;
                         case 3:
                             System.out.println("ATUALIZAR PREÇO");
+                            System.out.print("Informe o ID da Bike: ");
+                            int idPreco = MetodosUtilitarios.entradaInteira();
+                            for(Bicicleta bike : arrayDeBikes){
+                                if(bike.getId().equals(idPreco)){
+                                    bike.setPreco(models.EntradasCriarBike.informarPrecoBike());
+                                    break;
+                                }
+                            }
                             break;
                         case 4:
                             System.out.println("ATUALIZAR NOME DO COMPRADOR");
+                            System.out.print("Informe o ID da Bike: ");
+                            int idNomeComprador = MetodosUtilitarios.entradaInteira();
+                            for(Bicicleta bike : arrayDeBikes){
+                                if(bike.getId().equals(idNomeComprador)){
+                                    bike.setNomeDoComprador(models.EntradasCriarBike.informarNomeComprador());
+                                    break;
+                                }
+                            }
                             break;
                         case 5:
                             System.out.println("ATUALIZAR LOJA");
+                            System.out.print("Informe o ID da Bike: ");
+                            int idNomeLoja = MetodosUtilitarios.entradaInteira();
+                            for(Bicicleta bike : arrayDeBikes){
+                                if(bike.getId().equals(idNomeLoja)){
+                                    bike.setNomeDaLoja(models.EntradasCriarBike.informarNomeLoja());
+                                    break;
+                                }
+                            }
                             break;
                     }
                 } else if (option == 6) {
