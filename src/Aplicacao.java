@@ -2,15 +2,15 @@ import menus.Menus;
 import models.Bicicleta;
 import models.EntradasCriarBike;
 import utils.MetodosUtilitarios;
-//import java.util.Scanner;
+
 import java.util.Date;
 
 import java.util.ArrayList;
 
+//TODO CORRIGIR BUGS E REFATORAR
 public class Aplicacao {
     public static void main(String[] args){
         ArrayList<Bicicleta> arrayDeBikes = new ArrayList<>();
-        //Scanner entrada = new Scanner(System.in);
 
         int parada = 0;
         while(parada == 0) {
@@ -67,12 +67,10 @@ public class Aplicacao {
                     switch(opcaoAtualizar){
                         case 1:
                             System.out.println("ATUALIZAR MODELO");
-
                             System.out.print("Informe o ID da Bike: ");
                             int idModelo = MetodosUtilitarios.entradaInteira();
                             for(Bicicleta bike : arrayDeBikes){
                                 if(bike.getId().equals(idModelo)){
-
                                     bike.setModelo(models.EntradasCriarBike.informarModeloBike());
                                     break;
                                 }
@@ -84,7 +82,6 @@ public class Aplicacao {
                             int idCor = MetodosUtilitarios.entradaInteira();
                             for(Bicicleta bike : arrayDeBikes){
                                 if(bike.getId().equals(idCor)){
-
                                     bike.setCor(models.EntradasCriarBike.informarCorBike());
                                     break;
                                 }
@@ -126,6 +123,14 @@ public class Aplicacao {
                     }
                 } else if (option == 6) {
                     System.out.println("DELETAR UMA BIKE");
+                    System.out.print("Informe o ID da bike que você quer remover: ");
+                    int idBikeRemover = MetodosUtilitarios.entradaInteira();
+                    for(Bicicleta bike : arrayDeBikes){
+                        if(bike.getId().equals(idBikeRemover)){
+                            arrayDeBikes.remove(bike);
+                            break;
+                        }
+                    }
                 } else if (option == 7) {
                     System.out.println("SAIR");
                     System.out.println("ENCERRANDO");
