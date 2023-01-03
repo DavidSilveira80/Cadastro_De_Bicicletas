@@ -1,4 +1,4 @@
-package models;
+package utils;
 
 import java.util.Locale;
 import java.util.Scanner;

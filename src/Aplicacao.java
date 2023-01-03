@@ -1,6 +1,6 @@
 import menus.Menus;
 import models.Bicicleta;
-import models.EntradasCriarBike;
+import utils.EntradasCriarBike;
 import utils.MetodosUtilitarios;
 
 import java.util.Date;
@@ -71,7 +71,7 @@ public class Aplicacao {
                             int idModelo = MetodosUtilitarios.entradaInteira();
                             for(Bicicleta bike : arrayDeBikes){
                                 if(bike.getId().equals(idModelo)){
-                                    bike.setModelo(models.EntradasCriarBike.informarModeloBike());
+                                    bike.setModelo(EntradasCriarBike.informarModeloBike());
                                     break;
                                 }
                             }
@@ -82,7 +82,7 @@ public class Aplicacao {
                             int idCor = MetodosUtilitarios.entradaInteira();
                             for(Bicicleta bike : arrayDeBikes){
                                 if(bike.getId().equals(idCor)){
-                                    bike.setCor(models.EntradasCriarBike.informarCorBike());
+                                    bike.setCor(EntradasCriarBike.informarCorBike());
                                     break;
                                 }
                             }
@@ -93,7 +93,7 @@ public class Aplicacao {
                             int idPreco = MetodosUtilitarios.entradaInteira();
                             for(Bicicleta bike : arrayDeBikes){
                                 if(bike.getId().equals(idPreco)){
-                                    bike.setPreco(models.EntradasCriarBike.informarPrecoBike());
+                                    bike.setPreco(EntradasCriarBike.informarPrecoBike());
                                     break;
                                 }
                             }
@@ -104,7 +104,7 @@ public class Aplicacao {
                             int idNomeComprador = MetodosUtilitarios.entradaInteira();
                             for(Bicicleta bike : arrayDeBikes){
                                 if(bike.getId().equals(idNomeComprador)){
-                                    bike.setNomeDoComprador(models.EntradasCriarBike.informarNomeComprador());
+                                    bike.setNomeDoComprador(EntradasCriarBike.informarNomeComprador());
                                     break;
                                 }
                             }
@@ -115,7 +115,7 @@ public class Aplicacao {
                             int idNomeLoja = MetodosUtilitarios.entradaInteira();
                             for(Bicicleta bike : arrayDeBikes){
                                 if(bike.getId().equals(idNomeLoja)){
-                                    bike.setNomeDaLoja(models.EntradasCriarBike.informarNomeLoja());
+                                    bike.setNomeDaLoja(EntradasCriarBike.informarNomeLoja());
                                     break;
                                 }
                             }
