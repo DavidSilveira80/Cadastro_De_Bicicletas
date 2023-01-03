@@ -26,26 +26,44 @@ public class MetodosUtilitarios {
         }
         return numero;
     }
-    public static boolean existeIdBike(ArrayList<Bicicleta> arrayBikes, int id){
-        boolean resposta = false;
-        for(Bicicleta bike : arrayBikes){
-            if(bike.getId() == id){
-                resposta = true;
-                break;
-            }else{
-                resposta = false;
-            }
-        }
-        return resposta;
-    }
-
-    public static String listarBikePorId(ArrayList<Bicicleta> arrayBikes, int id) {
+    public static String listarBikePorId(ArrayList<Bicicleta> arrayBikes) {
+        System.out.print("Informe o Id da Bike: ");
+        int id = entradaInteira();
         String resposta = "";
         for (Bicicleta bike : arrayBikes) {
-            if (bike.getId() == id) {
+            if(bike.getId() != id){
+                resposta = "Bike não consta no cadastro.";
+            }else{
                 resposta = bike.listarAtributosBike();
+                }
+            }
+        return resposta;
+    }
+    public static void atualizarInfoDeUmaBike(ArrayList<Bicicleta> arrayBikes) {
+        System.out.print("Informe o ID da bike que você quer atualizar: ");
+        int id = entradaInteira();
+        for (Bicicleta bike : arrayBikes) {
+            if (bike.getId() != id) {
+                System.out.println("Bike não consta no cadastro");
+            } else {
+                bike.atualizarDadosBike();
             }
         }
-        return resposta;
+    }
+    public static void deletarUmaBike(ArrayList<Bicicleta> arrayBikes){
+        System.out.print("Informe o ID da bike que você quer remover: ");
+        int id = MetodosUtilitarios.entradaInteira();
+        int cont = 0;
+        for(Bicicleta bike : arrayBikes){
+            if(bike.getId() != id){
+                cont += 1;
+            }
+            if(cont != 0){
+                System.out.println("Bike não consta no cadastro");
+            }else if(bike.getId().equals(id)){
+                arrayBikes.remove(bike);
+                break;
+            }
+        }
     }
 }
