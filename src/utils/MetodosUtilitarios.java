@@ -1,7 +1,7 @@
 package utils;
 
+import menus.Menus;
 import models.Bicicleta;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -57,6 +57,51 @@ public class MetodosUtilitarios {
             System.out.println("Bike não consta no cadastro");
         }
     }
+    public static void atualizarUmaInfoEspecifica(ArrayList<Bicicleta> arrayBikes) {
+        System.out.print("Informe o ID da Bike que quer atualizar: ");
+        int id = entradaInteira();
+        if(arrayBikes.contains(retornaBikeEspecifica(arrayBikes, id))){
+            Bicicleta bike = retornaBikeEspecifica(arrayBikes, id);
+            int opcaoAtualizar = 0;
+            do {
+                Menus.menuAtualizaUmAtributo();
+                System.out.print("Informe sua escolha: ");
+                opcaoAtualizar = entradaInteira();
+
+            } while (opcaoAtualizar != 1 && opcaoAtualizar != 2 && opcaoAtualizar != 3
+                    && opcaoAtualizar != 4 && opcaoAtualizar != 5 && opcaoAtualizar != 6);
+
+            switch (opcaoAtualizar) {
+                case 1:
+                    System.out.println("ATUALIZAR MODELO");
+                    bike.setModelo(EntradasCriarBike.informarModeloBike());
+                    break;
+                case 2:
+                    System.out.println("ATUALIZAR COR");
+                    bike.setCor(EntradasCriarBike.informarCorBike());
+                    break;
+                case 3:
+                    System.out.println("ATUALIZAR PREÇO");
+                    bike.setPreco(EntradasCriarBike.informarPrecoBike());
+                    break;
+                case 4:
+                    System.out.println("ATUALIZAR NOME DO COMPRADOR");
+                    bike.setNomeDoComprador(EntradasCriarBike.informarNomeComprador());
+                    break;
+                case 5:
+                    System.out.println("ATUALIZAR LOJA");
+                    bike.setNomeDaLoja(EntradasCriarBike.informarNomeLoja());
+                    break;
+                case 6:
+                    System.out.println("Voltando ao menu principal");
+                    break;
+            }
+        }else{
+            System.out.println("Bike não consta no cadastro.");
+        }
+
+    }
+
     public static void deletarUmaBike(ArrayList<Bicicleta> arrayBikes) {
         System.out.print("Informe o ID da bike que você quer remover: ");
         int id = MetodosUtilitarios.entradaInteira();

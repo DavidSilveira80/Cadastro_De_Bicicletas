@@ -2,9 +2,7 @@ import menus.Menus;
 import models.Bicicleta;
 import utils.EntradasCriarBike;
 import utils.MetodosUtilitarios;
-
 import java.util.Date;
-
 import java.util.ArrayList;
 
 //TODO CORRIGIR BUGS E REFATORAR MÉTODO DE ATUALIZAÇÂO DE UM ATRIBUTO DA BIKE
@@ -58,71 +56,12 @@ public class Aplicacao {
 
                 } else if (option == 5) {
                     System.out.println("ATUALIZAR UMA INFORMAÇÂO ESPECIFICA DE UMA BIKE");
-                    int opcaoAtualizar = 0;
-                    do{
-                            Menus.menuAtualizaUmAtributo();
-                            System.out.print("Informe sua escolha: ");
-                            opcaoAtualizar = MetodosUtilitarios.entradaInteira();
-
-                    }while(opcaoAtualizar != 1 && opcaoAtualizar !=2 && opcaoAtualizar !=3
-                    && opcaoAtualizar != 4 && opcaoAtualizar != 5);
-                    switch(opcaoAtualizar){
-                        case 1:
-                            System.out.println("ATUALIZAR MODELO");
-                            System.out.print("Informe o ID da Bike: ");
-                            int idModelo = MetodosUtilitarios.entradaInteira();
-                            for(Bicicleta bike : arrayDeBikes){
-                                if(bike.getId().equals(idModelo)){
-                                    bike.setModelo(EntradasCriarBike.informarModeloBike());
-                                    break;
-                                }
-                            }
-                            break;
-                        case 2:
-                            System.out.println("ATUALIZAR COR");
-                            System.out.print("Informe o ID da Bike: ");
-                            int idCor = MetodosUtilitarios.entradaInteira();
-                            for(Bicicleta bike : arrayDeBikes){
-                                if(bike.getId().equals(idCor)){
-                                    bike.setCor(EntradasCriarBike.informarCorBike());
-                                    break;
-                                }
-                            }
-                            break;
-                        case 3:
-                            System.out.println("ATUALIZAR PREÇO");
-                            System.out.print("Informe o ID da Bike: ");
-                            int idPreco = MetodosUtilitarios.entradaInteira();
-                            for(Bicicleta bike : arrayDeBikes){
-                                if(bike.getId().equals(idPreco)){
-                                    bike.setPreco(EntradasCriarBike.informarPrecoBike());
-                                    break;
-                                }
-                            }
-                            break;
-                        case 4:
-                            System.out.println("ATUALIZAR NOME DO COMPRADOR");
-                            System.out.print("Informe o ID da Bike: ");
-                            int idNomeComprador = MetodosUtilitarios.entradaInteira();
-                            for(Bicicleta bike : arrayDeBikes){
-                                if(bike.getId().equals(idNomeComprador)){
-                                    bike.setNomeDoComprador(EntradasCriarBike.informarNomeComprador());
-                                    break;
-                                }
-                            }
-                            break;
-                        case 5:
-                            System.out.println("ATUALIZAR LOJA");
-                            System.out.print("Informe o ID da Bike: ");
-                            int idNomeLoja = MetodosUtilitarios.entradaInteira();
-                            for(Bicicleta bike : arrayDeBikes){
-                                if(bike.getId().equals(idNomeLoja)){
-                                    bike.setNomeDaLoja(EntradasCriarBike.informarNomeLoja());
-                                    break;
-                                }
-                            }
-                            break;
+                    if(arrayDeBikes.isEmpty()){
+                        System.out.println("Não há bikes cadastradas");
+                    }else {
+                        MetodosUtilitarios.atualizarUmaInfoEspecifica(arrayDeBikes);
                     }
+
                 } else if (option == 6) {
                     System.out.println("DELETAR UMA BIKE");
                     if(arrayDeBikes.isEmpty()){
