@@ -11,6 +11,7 @@ public class MetodosUtilitarios {
         contador++;
         return contador;
     }
+
     public static int entradaInteira(){
         Scanner entrada = new Scanner(System.in);
         boolean continuaLeitura = true;
@@ -30,40 +31,39 @@ public class MetodosUtilitarios {
         System.out.print("Informe o Id da Bike: ");
         int id = entradaInteira();
         String resposta = "";
-        for (Bicicleta bike : arrayBikes) {
-            if(bike.getId() != id){
-                resposta = "Bike não consta no cadastro.";
-            }else{
-                resposta = bike.listarAtributosBike();
-                }
-            }
+        if(arrayBikes.contains(retornaBikeEspecifica(arrayBikes, id))){
+            resposta = retornaBikeEspecifica(arrayBikes, id).listarAtributosBike();
+        }else{
+            resposta = "Bike não consta no cadastro";
+        }
         return resposta;
+    }
+    public static Bicicleta retornaBikeEspecifica(ArrayList<Bicicleta> arrayBikes, int id){
+        Bicicleta bikeRetornada = null;
+        for(Bicicleta bike : arrayBikes){
+            if(bike.getId().equals(id)){
+                bikeRetornada = bike;
+                break;
+            }
+        }
+        return bikeRetornada;
     }
     public static void atualizarInfoDeUmaBike(ArrayList<Bicicleta> arrayBikes) {
         System.out.print("Informe o ID da bike que você quer atualizar: ");
         int id = entradaInteira();
-        for (Bicicleta bike : arrayBikes) {
-            if (bike.getId() != id) {
-                System.out.println("Bike não consta no cadastro");
-            } else {
-                bike.atualizarDadosBike();
-            }
+        if(arrayBikes.contains(retornaBikeEspecifica(arrayBikes, id))){
+            retornaBikeEspecifica(arrayBikes, id).atualizarDadosBike();
+        }else{
+            System.out.println("Bike não consta no cadastro");
         }
     }
-    public static void deletarUmaBike(ArrayList<Bicicleta> arrayBikes){
+    public static void deletarUmaBike(ArrayList<Bicicleta> arrayBikes) {
         System.out.print("Informe o ID da bike que você quer remover: ");
         int id = MetodosUtilitarios.entradaInteira();
-        int cont = 0;
-        for(Bicicleta bike : arrayBikes){
-            if(bike.getId() != id){
-                cont += 1;
-            }
-            if(cont != 0){
-                System.out.println("Bike não consta no cadastro");
-            }else if(bike.getId().equals(id)){
-                arrayBikes.remove(bike);
-                break;
-            }
+        if(arrayBikes.contains(retornaBikeEspecifica(arrayBikes, id))){
+            arrayBikes.remove(retornaBikeEspecifica(arrayBikes, id));
+        }else{
+            System.out.println("Bike não consta no cadastro.");
         }
     }
 }
