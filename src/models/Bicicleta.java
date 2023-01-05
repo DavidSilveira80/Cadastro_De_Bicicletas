@@ -6,14 +6,13 @@ import java.text.*;
 import java.util.Date;
 
 public class Bicicleta {
-    Integer id;
-
-    String modelo;
-    String cor;
-    String nomeDoComprador;
-    String nomeDaLoja;
-    double preco;
-    Date dataDeCompra;
+    private Integer id;
+    private String modelo;
+    private String cor;
+    private String nomeDoComprador;
+    private String nomeDaLoja;
+    private double preco;
+    private Date dataDeCompra;
 
     public Bicicleta(String modelo, String cor, double preco, String nomeDoComprador, String nomeDaLoja, Date
             dataDeCompra){
@@ -92,7 +91,7 @@ public class Bicicleta {
                 "BIKE -> %d\n" +
                 "Modelo: %s\n" +
                 "Cor: %s\n" +
-                "Preço: %f\n" +
+                "Preço: %.2f R$\n" +
                 "Comprador: %s\n" +
                 "Loja: %s\n" +
                 "Data da Compra: %s", getId(), getModelo(),
