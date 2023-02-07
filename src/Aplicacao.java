@@ -5,7 +5,8 @@ import utils.MetodosUtilitarios;
 import java.util.Date;
 import java.util.ArrayList;
 
-//TODO CORRIGIR BUGS E REFATORAR MÉTODO DE ATUALIZAÇÂO DE UM ATRIBUTO DA BIKE
+//TODO LIMPAR CÓDIGO
+//TODO IMPLEMENTAR PERSISTÊNCIA DE DADOS
 public class Aplicacao {
     public static void main(String[] args){
         ArrayList<Bicicleta> arrayDeBikes = new ArrayList<>();
