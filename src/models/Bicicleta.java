@@ -1,9 +1,6 @@
 package models;
 
-import utils.EntradasCriarBike;
-import utils.MetodosUtilitarios;
-import java.text.*;
-import java.util.Date;
+import java.util.Locale;
 
 public class Bicicleta {
     private Integer id;
@@ -12,19 +9,7 @@ public class Bicicleta {
     private String nomeDoComprador;
     private String nomeDaLoja;
     private double preco;
-    private Date dataDeCompra;
 
-    public Bicicleta(String modelo, String cor, double preco, String nomeDoComprador, String nomeDaLoja, Date
-            dataDeCompra){
-
-        this.id = MetodosUtilitarios.incremento();
-        this.modelo = modelo;
-        this.cor = cor;
-        this.preco = preco;
-        this.nomeDoComprador = nomeDoComprador;
-        this.nomeDaLoja = nomeDaLoja;
-        this.dataDeCompra = dataDeCompra;
-    }
 
     public Integer getId() {
         return id;
@@ -41,7 +26,6 @@ public class Bicicleta {
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
-
 
     public String getCor() {
         return cor;
@@ -75,39 +59,18 @@ public class Bicicleta {
         this.preco = preco;
     }
 
-    public Date getDataDeCompra() {
-        return dataDeCompra;
-    }
-
-    public void setDataDeCompra(Date dataDeCompra) {
-        this.dataDeCompra = dataDeCompra;
-    }
-
     public String listarAtributosBike(){
-
-        SimpleDateFormat sdf1= new SimpleDateFormat("dd/MM/yyyy");
-
+        Locale.setDefault(Locale.US);
         String resp = String.format("============================\n" +
                 "BIKE -> %d\n" +
                 "Modelo: %s\n" +
                 "Cor: %s\n" +
-                "Preço: %.2f R$\n" +
+                "Preço: R$ %.2f \n" +
                 "Comprador: %s\n" +
-                "Loja: %s\n" +
-                "Data da Compra: %s", getId(), getModelo(),
+                "Loja: %s\n"
+                ,getId(), getModelo(),
                 getCor(), getPreco(), getNomeDoComprador()
-        ,getNomeDaLoja(), sdf1.format(getDataDeCompra()));
+        ,getNomeDaLoja());
         return resp;
-
-    }
-    public void atualizarDadosBike(){
-        Date dataDeCompra = new Date();
-        setModelo(EntradasCriarBike.informarModeloBike());
-        setCor(EntradasCriarBike.informarCorBike());
-        setPreco(EntradasCriarBike.informarPrecoBike());
-        setNomeDoComprador(EntradasCriarBike.informarNomeComprador());
-        setNomeDaLoja(EntradasCriarBike.informarNomeLoja());
-        setDataDeCompra(dataDeCompra);
-
     }
 }

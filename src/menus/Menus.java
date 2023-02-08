@@ -3,22 +3,22 @@ package menus;
 public class Menus {
     public static void menuPrincipal(){
         System.out.println("===============================================================");
-        System.out.println("    1  ->   Criar Bike                                         ");
-        System.out.println("    2  ->   Listar todas as Bikes                              ");
-        System.out.println("    3  ->   Listar uma Bike por ID                             ");
-        System.out.println("    4  ->   Atualizar todas as informações da bike             ");
-        System.out.println("    5  ->   Atualizar alguma informação especifica de uma bike ");
-        System.out.println("    6  ->   Deletar uma Bike                                   ");
-        System.out.println("    7  ->   Sair                                               ");
+        System.out.println("    1  ->   CADASTRAR BIKE                                     ");
+        System.out.println("    2  ->   LISTAR TODAS AS BIKES                              ");
+        System.out.println("    3  ->   LISTAR UMA BIKE POR ID                             ");
+        System.out.println("    4  ->   ATUALIZAR BIKE                                     ");
+        System.out.println("    5  ->   A DEFINIR                                          ");
+        System.out.println("    6  ->   DELETAR UMA BIKE                                   ");
+        System.out.println("    7  ->   SAIR                                               ");
 
     }
     public static void menuAtualizaUmAtributo(){
-        System.out.println("==================================");
-        System.out.println("  1 -> Atualizar Modelo           ");
-        System.out.println("  2 -> Atualizar Cor              ");
-        System.out.println("  3 -> Atualizar Preço            ");
-        System.out.println("  4 -> Atualizar Nome do Comprador");
-        System.out.println("  5 -> Atualizar Loja             ");
-        System.out.println("  6 -> Voltar ao menu principal   ");
+        System.out.println("========================================");
+        System.out.println("  1 -> ATUALIZAR MODELO                 ");
+        System.out.println("  2 -> ATUALIZAR COR                    ");
+        System.out.println("  3 -> ATUALIZAR PREÇO                  ");
+        System.out.println("  4 -> ATUALIZAR NOME DO COMPRADOR      ");
+        System.out.println("  5 -> ATUALIZAR LOJA                   ");
+        System.out.println("  6 -> VOLTAR AO MENU PRINCIPAL         ");
     }
 }

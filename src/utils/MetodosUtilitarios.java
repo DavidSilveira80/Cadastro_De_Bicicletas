@@ -1,8 +1,9 @@
 package utils;
 
+import DAO.BicicletaDAO;
 import menus.Menus;
 import models.Bicicleta;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MetodosUtilitarios {
@@ -21,94 +22,114 @@ public class MetodosUtilitarios {
                 numero = Integer.parseInt(entrada.nextLine());
                 continuaLeitura = false;
             }catch(NumberFormatException e){
-                System.out.println("Entrada com valor inválido. Tente Novamente.");
-                System.out.print("Informe sua escolha: ");
+                System.out.println("ENTRADA COM VALOR INVÁLIDO. TENTE NOVAMENTE.");
+                System.out.print("INFORME SUA ESCOLHA: ");
             }
         }
         return numero;
     }
-    public static String listarBikePorId(ArrayList<Bicicleta> arrayBikes) {
-        System.out.print("Informe o Id da Bike: ");
-        int id = entradaInteira();
-        String resposta = "";
-        if(arrayBikes.contains(retornaBikeEspecifica(arrayBikes, id))){
-            resposta = retornaBikeEspecifica(arrayBikes, id).listarAtributosBike();
-        }else{
-            resposta = "Bike não consta no cadastro";
-        }
-        return resposta;
+    public static void cadastrarBike(){
+        Bicicleta bike = new Bicicleta();
+        BicicletaDAO dao = new BicicletaDAO();
+        bike.setModelo(EntradasCriarBike.informarModeloBike());
+        bike.setCor(EntradasCriarBike.informarCorBike());
+        bike.setPreco(EntradasCriarBike.informarPrecoBike());
+        bike.setNomeDoComprador(EntradasCriarBike.informarNomeComprador());
+        bike.setNomeDaLoja(EntradasCriarBike.informarNomeLoja());
+        dao.salvar(bike);
+        System.out.println("BIKE CADASTRADA COM SUCESSO.");
     }
-    public static Bicicleta retornaBikeEspecifica(ArrayList<Bicicleta> arrayBikes, int id){
-        Bicicleta bikeRetornada = null;
-        for(Bicicleta bike : arrayBikes){
-            if(bike.getId().equals(id)){
-                bikeRetornada = bike;
-                break;
+    public static void listarBikes(){
+        BicicletaDAO dao = new BicicletaDAO();
+
+        try{
+            List<Bicicleta> bikes = dao.listar();
+            if(bikes.isEmpty()){
+                System.out.println("NÃO HÁ BIKES CADASTRADAS NO SISTEMA");
+            }else{
+                for(Bicicleta bike : bikes) {
+                    System.out.println(bike.listarAtributosBike());
+                    System.out.println("-----------------------");
+                }
             }
+        }catch(Exception e){
+            e.printStackTrace();
         }
-        return bikeRetornada;
     }
-    public static void atualizarInfoDeUmaBike(ArrayList<Bicicleta> arrayBikes) {
-        System.out.print("Informe o ID da bike que você quer atualizar: ");
+    public static void listarBikePorId() throws Exception {
+        BicicletaDAO dao = new BicicletaDAO();
+        System.out.print("INFORME O ID DA BIKE: ");
         int id = entradaInteira();
-        if(arrayBikes.contains(retornaBikeEspecifica(arrayBikes, id))){
-            retornaBikeEspecifica(arrayBikes, id).atualizarDadosBike();
+        Bicicleta bikeRetornada = dao.buscar(id);
+        if(bikeRetornada.getId() == null){
+            System.out.println("BIKE NÃO CADASTRADA NO SISTEMA");
+            System.out.println();
         }else{
-            System.out.println("Bike não consta no cadastro");
+            System.out.println(bikeRetornada.listarAtributosBike());
         }
     }
-    public static void atualizarUmaInfoEspecifica(ArrayList<Bicicleta> arrayBikes) {
-        System.out.print("Informe o ID da Bike que quer atualizar: ");
+
+    public static void atualizarBike() throws Exception {
+        System.out.print("INFORME O ID DA BIKE QUE VOCÊ QUER ATUALIZAR: ");
         int id = entradaInteira();
-        if(arrayBikes.contains(retornaBikeEspecifica(arrayBikes, id))){
-            Bicicleta bike = retornaBikeEspecifica(arrayBikes, id);
-            int opcaoAtualizar = 0;
+        int opcaoAtualizar;
             do {
                 Menus.menuAtualizaUmAtributo();
-                System.out.print("Informe sua escolha: ");
+                System.out.print("INFORME SUA ESCOLHA: ");
                 opcaoAtualizar = entradaInteira();
 
             } while (opcaoAtualizar != 1 && opcaoAtualizar != 2 && opcaoAtualizar != 3
                     && opcaoAtualizar != 4 && opcaoAtualizar != 5 && opcaoAtualizar != 6);
-
-            switch (opcaoAtualizar) {
+            BicicletaDAO dao = new BicicletaDAO();
+            Bicicleta bike;
+        switch (opcaoAtualizar) {
                 case 1:
                     System.out.println("ATUALIZAR MODELO");
+                    bike = dao.buscar(id);
                     bike.setModelo(EntradasCriarBike.informarModeloBike());
+                    dao.atualizar(bike, 1);
                     break;
                 case 2:
                     System.out.println("ATUALIZAR COR");
+                    bike = dao.buscar(id);
                     bike.setCor(EntradasCriarBike.informarCorBike());
+                    dao.atualizar(bike, 2);
                     break;
                 case 3:
                     System.out.println("ATUALIZAR PREÇO");
+                    bike = dao.buscar(id);
                     bike.setPreco(EntradasCriarBike.informarPrecoBike());
+                    dao.atualizar(bike, 3);
                     break;
                 case 4:
                     System.out.println("ATUALIZAR NOME DO COMPRADOR");
+                    bike = dao.buscar(id);
                     bike.setNomeDoComprador(EntradasCriarBike.informarNomeComprador());
+                    dao.atualizar(bike, 4);
                     break;
                 case 5:
                     System.out.println("ATUALIZAR LOJA");
+                    bike = dao.buscar(id);
                     bike.setNomeDaLoja(EntradasCriarBike.informarNomeLoja());
+                    dao.atualizar(bike, 5);
                     break;
                 case 6:
-                    System.out.println("Voltando ao menu principal");
+                    System.out.println("VOLTANDO AO MENU PRINCIPAL");
                     break;
             }
-        }else{
-            System.out.println("Bike não consta no cadastro.");
-        }
-
     }
 
-    public static void deletarUmaBike(ArrayList<Bicicleta> arrayBikes) {
-        System.out.print("Informe o ID da bike que você quer remover: ");
+    public static void deletarUmaBike() throws Exception {
+        System.out.print("INFORME O ID DA BIKE QUE VOCÊ QUER REMOVER: ");
         int id = MetodosUtilitarios.entradaInteira();
-        if(arrayBikes.contains(retornaBikeEspecifica(arrayBikes, id))){
-            arrayBikes.remove(retornaBikeEspecifica(arrayBikes, id));
+        BicicletaDAO dao = new BicicletaDAO();
+        Bicicleta bikeRetornada = dao.buscar(id);
+        if(bikeRetornada.getId() == null){
+            System.out.println("BIKE NÃO CADASTRADA NO SISTEMA");
+            System.out.println();
         }else{
-            System.out.println("Bike não consta no cadastro.");
+            dao.deletar(id);
+            System.out.println("BIKE DELETADA COM SUCESSO");
         }
     }
 }
