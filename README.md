@@ -27,7 +27,6 @@ CREATE TABLE bicicletas
     preco double not null DEFAULT '0',
     nome_comprador varchar(45) not null,
     nome_loja varchar(45) not null,
-    data_compra Date not null,
     PRIMARY KEY(id)
 );
 ~~~
