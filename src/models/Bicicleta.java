@@ -61,7 +61,7 @@ public class Bicicleta {
 
     public String listarAtributosBike(){
         Locale.setDefault(Locale.US);
-        String resp = String.format("============================\n" +
+        return String.format("============================\n" +
                 "BIKE -> %d\n" +
                 "Modelo: %s\n" +
                 "Cor: %s\n" +
@@ -71,6 +71,5 @@ public class Bicicleta {
                 ,getId(), getModelo(),
                 getCor(), getPreco(), getNomeDoComprador()
         ,getNomeDaLoja());
-        return resp;
     }
 }
