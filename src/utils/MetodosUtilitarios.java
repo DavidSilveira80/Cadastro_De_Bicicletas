@@ -6,6 +6,15 @@ import models.Bicicleta;
 import java.util.List;
 import java.util.Scanner;
 
+import static java.lang.System.out;
+import static java.lang.Integer.parseInt;
+
+import static utils.EntradasCriarBike.informarModeloBike;
+import static utils.EntradasCriarBike.informarCorBike;
+import static utils.EntradasCriarBike.informarNomeComprador;
+import static utils.EntradasCriarBike.informarPrecoBike;
+import static utils.EntradasCriarBike.informarNomeLoja;
+
 public class MetodosUtilitarios {
     static int contador = 0;
     public static int incremento(){
@@ -19,63 +28,68 @@ public class MetodosUtilitarios {
         int numero = 0;
         while(continuaLeitura){
             try{
-                numero = Integer.parseInt(entrada.nextLine());
+                numero = parseInt(entrada.nextLine());
                 continuaLeitura = false;
             }catch(NumberFormatException e){
-                System.out.println("ENTRADA COM VALOR INVÁLIDO. TENTE NOVAMENTE.");
-                System.out.print("INFORME SUA ESCOLHA: ");
+                out.println("ENTRADA COM VALOR INVÁLIDO. TENTE NOVAMENTE.");
+                out.print("INFORME SUA ESCOLHA: ");
             }
         }
         return numero;
     }
+
     public static void cadastrarBike(){
         Bicicleta bike = new Bicicleta();
         BicicletaDAO dao = new BicicletaDAO();
-        bike.setModelo(EntradasCriarBike.informarModeloBike());
-        bike.setCor(EntradasCriarBike.informarCorBike());
-        bike.setPreco(EntradasCriarBike.informarPrecoBike());
-        bike.setNomeDoComprador(EntradasCriarBike.informarNomeComprador());
-        bike.setNomeDaLoja(EntradasCriarBike.informarNomeLoja());
+
+        bike.setModelo(informarModeloBike());
+        bike.setCor(informarCorBike());
+        bike.setPreco(informarPrecoBike());
+        bike.setNomeDoComprador(informarNomeComprador());
+        bike.setNomeDaLoja(informarNomeLoja());
+
         dao.salvar(bike);
-        System.out.println("BIKE CADASTRADA COM SUCESSO.");
+        out.println("BIKE CADASTRADA COM SUCESSO.");
     }
+
     public static void listarBikes(){
         BicicletaDAO dao = new BicicletaDAO();
 
         try{
             List<Bicicleta> bikes = dao.listar();
             if(bikes.isEmpty()){
-                System.out.println("NÃO HÁ BIKES CADASTRADAS NO SISTEMA");
+                out.println("NÃO HÁ BIKES CADASTRADAS NO SISTEMA");
             }else{
                 for(Bicicleta bike : bikes) {
-                    System.out.println(bike.listarAtributosBike());
-                    System.out.println("-----------------------");
+                    out.println(bike.listarAtributosBike());
+                    out.println("-----------------------");
                 }
             }
         }catch(Exception e){
             e.printStackTrace();
         }
     }
+
     public static void listarBikePorId() throws Exception {
         BicicletaDAO dao = new BicicletaDAO();
-        System.out.print("INFORME O ID DA BIKE: ");
+        out.print("INFORME O ID DA BIKE: ");
         int id = entradaInteira();
         Bicicleta bikeRetornada = dao.buscar(id);
         if(bikeRetornada.getId() == null){
-            System.out.println("BIKE NÃO CADASTRADA NO SISTEMA");
-            System.out.println();
+            out.println("BIKE NÃO CADASTRADA NO SISTEMA");
+            out.println();
         }else{
-            System.out.println(bikeRetornada.listarAtributosBike());
+            out.println(bikeRetornada.listarAtributosBike());
         }
     }
 
     public static void atualizarBike() throws Exception {
-        System.out.print("INFORME O ID DA BIKE QUE VOCÊ QUER ATUALIZAR: ");
+        out.print("INFORME O ID DA BIKE QUE VOCÊ QUER ATUALIZAR: ");
         int id = entradaInteira();
         int opcaoAtualizar;
             do {
                 Menus.menuAtualizaUmAtributo();
-                System.out.print("INFORME SUA ESCOLHA: ");
+                out.print("INFORME SUA ESCOLHA: ");
                 opcaoAtualizar = entradaInteira();
 
             } while (opcaoAtualizar != 1 && opcaoAtualizar != 2 && opcaoAtualizar != 3
@@ -84,52 +98,54 @@ public class MetodosUtilitarios {
             Bicicleta bike;
         switch (opcaoAtualizar) {
                 case 1:
-                    System.out.println("ATUALIZAR MODELO");
+                    out.println("ATUALIZAR MODELO");
                     bike = dao.buscar(id);
-                    bike.setModelo(EntradasCriarBike.informarModeloBike());
+                    bike.setModelo(informarModeloBike());
                     dao.atualizar(bike, 1);
                     break;
                 case 2:
-                    System.out.println("ATUALIZAR COR");
+                    out.println("ATUALIZAR COR");
                     bike = dao.buscar(id);
-                    bike.setCor(EntradasCriarBike.informarCorBike());
+                    bike.setCor(informarCorBike());
                     dao.atualizar(bike, 2);
                     break;
                 case 3:
-                    System.out.println("ATUALIZAR PREÇO");
+                    out.println("ATUALIZAR PREÇO");
                     bike = dao.buscar(id);
-                    bike.setPreco(EntradasCriarBike.informarPrecoBike());
+                    bike.setPreco(informarPrecoBike());
                     dao.atualizar(bike, 3);
                     break;
                 case 4:
-                    System.out.println("ATUALIZAR NOME DO COMPRADOR");
+                    out.println("ATUALIZAR NOME DO COMPRADOR");
                     bike = dao.buscar(id);
-                    bike.setNomeDoComprador(EntradasCriarBike.informarNomeComprador());
+                    bike.setNomeDoComprador(informarNomeComprador());
                     dao.atualizar(bike, 4);
                     break;
                 case 5:
-                    System.out.println("ATUALIZAR LOJA");
+                    out.println("ATUALIZAR LOJA");
                     bike = dao.buscar(id);
-                    bike.setNomeDaLoja(EntradasCriarBike.informarNomeLoja());
+                    bike.setNomeDaLoja(informarNomeLoja());
                     dao.atualizar(bike, 5);
                     break;
                 case 6:
-                    System.out.println("VOLTANDO AO MENU PRINCIPAL");
+                    out.println("VOLTANDO AO MENU PRINCIPAL");
                     break;
             }
     }
 
     public static void deletarUmaBike() throws Exception {
-        System.out.print("INFORME O ID DA BIKE QUE VOCÊ QUER REMOVER: ");
-        int id = MetodosUtilitarios.entradaInteira();
+        out.print("INFORME O ID DA BIKE QUE VOCÊ QUER REMOVER: ");
+        int id = entradaInteira();
+
         BicicletaDAO dao = new BicicletaDAO();
         Bicicleta bikeRetornada = dao.buscar(id);
+
         if(bikeRetornada.getId() == null){
-            System.out.println("BIKE NÃO CADASTRADA NO SISTEMA");
-            System.out.println();
+            out.println("BIKE NÃO CADASTRADA NO SISTEMA");
+            out.println();
         }else{
             dao.deletar(id);
-            System.out.println("BIKE DELETADA COM SUCESSO");
+            out.println("BIKE DELETADA COM SUCESSO");
         }
     }
 }

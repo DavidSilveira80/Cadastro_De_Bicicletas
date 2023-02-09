@@ -1,8 +1,15 @@
 import menus.Menus;
-import utils.MetodosUtilitarios;
+import static java.lang.System.out;
+import static utils.MetodosUtilitarios.entradaInteira;
+import static utils.MetodosUtilitarios.cadastrarBike;
+import static utils.MetodosUtilitarios.listarBikes;
+import static utils.MetodosUtilitarios.listarBikePorId;
+import static utils.MetodosUtilitarios.atualizarBike;
+import static utils.MetodosUtilitarios.deletarUmaBike;
+
 
 //TODO LIMPAR CÓDIGO
-//TODO IMPLEMENTAR PERSISTÊNCIA DE DADOS
+
 public class Aplicacao {
     public static void main(String[] args) throws Exception {
 
@@ -11,39 +18,39 @@ public class Aplicacao {
             int option;
             do {
                 Menus.menuPrincipal();
-                System.out.print("INFORME A SUA ESCOLHA: ");
-                option = MetodosUtilitarios.entradaInteira();
+                out.print("INFORME A SUA ESCOLHA: ");
+                option = entradaInteira();
 
                 if (option == 1) {
-                    System.out.println("CRIAR BIKE");
-                    System.out.println();
-                    MetodosUtilitarios.cadastrarBike();
+                    out.println("CRIAR BIKE");
+                    out.println();
+                    cadastrarBike();
 
                 } else if (option == 2) {
-                    System.out.println("LISTAR TODAS AS BIKES");
-                    System.out.println();
-                    MetodosUtilitarios.listarBikes();
+                    out.println("LISTAR TODAS AS BIKES");
+                    out.println();
+                    listarBikes();
 
                 } else if (option == 3) {
-                    System.out.println("LISTAR UMA BIKE POR ID");
-                    System.out.println();
-                    MetodosUtilitarios.listarBikePorId();
+                    out.println("LISTAR UMA BIKE POR ID");
+                    out.println();
+                    listarBikePorId();
 
                 } else if (option == 4) {
-                    System.out.println("ATUALIZAR BIKE");
-                    System.out.println();
-                    MetodosUtilitarios.atualizarBike();
+                    out.println("ATUALIZAR BIKE");
+                    out.println();
+                    atualizarBike();
 
                 } else if (option == 5) {
-                    System.out.println("A DEFINIR");
+                    out.println("A DEFINIR");
                     break;
                 } else if (option == 6) {
-                    System.out.println("DELETAR UMA BIKE");
-                    System.out.println();
-                    MetodosUtilitarios.deletarUmaBike();
+                    out.println("DELETAR UMA BIKE");
+                    out.println();
+                    deletarUmaBike();
                 } else if (option == 7) {
-                    System.out.println("SAIR");
-                    System.out.println("ENCERRANDO");
+                    out.println("SAIR");
+                    out.println("ENCERRANDO");
                     parada = 1;
                 }
             }while (option != 1 && option != 2 && option != 3 &&

@@ -2,43 +2,43 @@ package utils;
 
 import java.util.Locale;
 import java.util.Scanner;
+import static java.lang.System.out;
 
 public class EntradasCriarBike {
 
     public static String informarModeloBike(){
         Scanner entrada = new Scanner(System.in);
-        System.out.print("INFORME O MODELO DA BIKE: ");
-        String modelo = entrada.nextLine();
-        return modelo;
+        String modelo;
+        out.print("INFORME O MODELO DA BIKE: ");
+        return modelo = entrada.nextLine();
     }
 
     public static String informarCorBike(){
         Scanner entrada = new Scanner(System.in);
-        System.out.print("INFORME A COR DA BIKE: ");
-        String cor = entrada.nextLine();
-        return cor;
+        String cor;
+        out.print("INFORME A COR DA BIKE: ");
+        return cor = entrada.nextLine();
     }
 
     public static String informarNomeComprador(){
         Scanner entrada = new Scanner(System.in);
-        System.out.print("INFORME O NOME DO COMPRADOR: ");
-        String nomeDoComprador = entrada.nextLine();
-        return nomeDoComprador;
+        String nomeDoComprador;
+        out.print("INFORME O NOME DO COMPRADOR: ");
+        return nomeDoComprador = entrada.nextLine();
     }
 
     public static String informarNomeLoja(){
         Scanner entrada = new Scanner(System.in);
-        System.out.print("INFORME O NOME DA LOJA: ");
-        String nomeDaLoja = entrada.nextLine();
-        return nomeDaLoja;
+        String nomeDaLoja;
+        out.print("INFORME O NOME DA LOJA: ");
+        return nomeDaLoja = entrada.nextLine();
     }
 
     public static double informarPrecoBike(){
         Locale.setDefault(Locale.US);
         Scanner entrada = new Scanner(System.in);
-        System.out.print("INFORME O VALOR DA BIKE: R$ ");
-
-        double preco = entrada.nextDouble();
-        return preco;
+        double preco;
+        out.print("INFORME O VALOR DA BIKE: R$ ");
+        return preco = entrada.nextDouble();
     }
 }
