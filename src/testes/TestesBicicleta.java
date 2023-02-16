@@ -7,9 +7,11 @@ import org.junit.jupiter.api.Assertions;
 import utils.MetodosUtilitarios;
 
 import java.text.ParseException;
-import java.util.Date;
+
+// aqui vai alguns testes
 
 public class TestesBicicleta {
+
     @Test
     void testeIncrementadorDoId(){
         Assertions.assertEquals(1, MetodosUtilitarios.incremento());
