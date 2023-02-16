@@ -21,7 +21,7 @@ jobs:
     - name: Cache dependencies
       uses: actions/cache@v2
       with:
-        path: ~/.m2/repository
+        path: ~/Cadastro_De_Bicicletas/test
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
         restore-keys: |
           ${{ runner.os }}-maven-
